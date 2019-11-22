@@ -1,30 +1,24 @@
 from random import *
+import Static_Resources
 
 
-class cpu(object):
+class Cpu(object):
+    moves = list(range(11))
+
     def __init__(self, difficulty):
         self.difficulty = difficulty
         self.moveset = []
 
     def batting(self, user):
-        self.moveset = [choice(list(range(11))) for i in range(4 + self.difficulty)]
-        if user in self.moveset:
-            self.moveset.append(choice(list(range(11)).remove(user)))
-        else:
-            self.moveset.append(user)
+        self.moveset = Static_Resources.moveset_create_batting(user,self.difficulty)
         return_stuff = choice(self.moveset)
-        self.moveset.clear()
+        self.moveset = self.moveset.clear()
         return return_stuff
 
     def bowling(self, user):
-        self.moveset = [choice(list(range(11))) for i in range(7 - self.difficulty)]
-        if user in self.moveset:
-            self.moveset.append(choice(list(range(11)).remove(user)))
-        else:
-            self.moveset.append(user)
+        self.moveset = Static_Resources.moveset_create_bowling(user, self.difficulty)
         return_stuff = choice(self.moveset)
-        self.moveset.clear()
+        self.moveset = self.moveset.clear()
         return return_stuff
-
 
 
