@@ -28,7 +28,6 @@ def start():
         print('I did\'nt get that.\nType again:')
 
 
-
 def toss():
     print('Lets begin')
     print('How many tosses do you want the best out of?:\n')
@@ -155,7 +154,6 @@ def bowling_first(cpu):
 def batting_second(cpu, target):
     print('You are Batting now')
     score = 0
-    win_state = ''
     while True:
         user = input('Enter your number:')
         while not (('0' <= user <= '9') or (user == '10')):
@@ -192,7 +190,6 @@ def batting_second(cpu, target):
 def bowling_second(cpu, target):
     print('You are Bowling now')
     score = 0
-    win_state = ''
     while True:
         user = input('Enter your number:')
         while not (('0' <= user <= '9') or (user == '10')):
