@@ -191,6 +191,7 @@ def bowling_second(cpu, target):
     print('You are Bowling now')
     score = 0
     while True:
+        print()
         user = input('Enter your number:')
         while not (('0' <= user <= '9') or (user == '10')):
             print('You can\'t use that.\nType again')
@@ -223,5 +224,15 @@ def bowling_second(cpu, target):
         print(f'Computer\'s score is {score}\n' + '-' * 100)
 
 
-x = start()
-bowling_second(x, 50)
+def main():
+    cpu = start()
+    chc = toss()
+    if chc == 'bat':
+        target = batting_first(cpu)
+        bowling_second(cpu, target)
+    if chc == 'bowl':
+        target = bowling_first(cpu)
+        batting_second(cpu, target)
+
+
+
